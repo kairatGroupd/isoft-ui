@@ -15,3 +15,8 @@ class Company(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        db_table = ''
+        managed = True
+        verbose_name = 'Компания'
+        verbose_name_plural = 'Каомпании'
