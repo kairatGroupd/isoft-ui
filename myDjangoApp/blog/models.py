@@ -83,3 +83,5 @@ class BlogComment(models.Model):
         else:
             titlestring=self.description
         return titlestring
+
+

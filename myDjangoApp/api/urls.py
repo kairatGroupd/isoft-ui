@@ -1,43 +1,24 @@
-# from django.urls import path, include
-# from django.contrib.auth.views import LogoutView
-# from rest_framework import routers
+from django.urls import path, include
+from django.contrib.auth.views import LogoutView
+from rest_framework import routers
+from .views import *
 
-# from .views import (
-#     dashboard,
-#     profile,
-#     profile_edit,
-#     messages,
-#     messages_api,
-#     projects,
-#     projects_api,
-#     LoginView,
-#     EducationView,
-#     )
-# router = routers.DefaultRouter()
-# # router.register('product', views.ProductViewSet, basename='product')
-# router.register('profile', )
+router = routers.DefaultRouter()
+router.register('product', ProductViewSet, basename='product')
+router.register('category', CategoryViewSet, basename='categoty')
+router.register('information', InformationViews)
+router.register('exiperiens', ExperienceViewSet)
+router.register('competence', CompetenceViewSet)
+router.register('project', ProjectViewSet)
 
-# urlpatterns = [
-#     path('', include(router.urls)),
-# ]
 
-# app_name = 'api'
-# # urlpatterns = [
 
-# #     path('', dashboard, name='dashboard'),
+urlpatterns = [
+    path('', include(router.urls)),
+    path('order/', OrderView.as_view()),
+    path('blog/', BlogView.as_view()),
+    path('blog-author/', BlogAuthorViews.as_view()),
+    path('blog-comment/', BlogCommentViews.as_view()),
+    path('messege', MessegeViews.as_view()),
+]
 
-# #     path('profile/', profile, name='profile'),
-# #     path('profile/edit/', profile_edit, name='profile_edit'),
-
-# #     path('messages', messages, name='messages'),
-# #     path('messages/api/', messages_api, name='messages_api'),
-
-# #     path('projects', projects, name='projects'),
-# #     path('projects/api/', projects_api, name='projects_api'),
-
-# #     path('education/', EducationView.as_view(), name='education'),
-# #     # path('education/', EducationView.as_view(), name='one_education'),
-
-# #     path('login/', LoginView.as_view(), name='login'),
-# #     path('logout/', LogoutView.as_view(), name='logout'),
-# # ]
